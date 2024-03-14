@@ -1,4 +1,13 @@
 package com.momid.vis
 
-class Animate {
+fun startAnimation(durationMillis: Long, onEach: (millisPassed: Long) -> Unit) {
+    val startTime = System.currentTimeMillis()
+    Thread {
+        while (true) {
+            onEach(System.currentTimeMillis() - startTime)
+            if (System.currentTimeMillis() - startTime > durationMillis) {
+                break
+            }
+        }
+    }.start()
 }

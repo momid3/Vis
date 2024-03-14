@@ -1,4 +1,8 @@
 package com.momid.vis
 
-class Root {
-}
+internal var privateRoot: Screen? = null
+
+val root: Screen
+    get() {
+        return privateRoot!!
+    }

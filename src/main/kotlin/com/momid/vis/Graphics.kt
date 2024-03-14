@@ -1,4 +1,10 @@
 package com.momid.vis
 
-class Graphics {
+import javafx.application.Application
+
+internal lateinit var start: () -> Unit
+
+fun showGraphics(onStart: () -> Unit) {
+    start = onStart
+    Application.launch(Graphics::class.java)
 }
