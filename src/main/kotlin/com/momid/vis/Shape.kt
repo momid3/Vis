@@ -1,5 +1,7 @@
 package com.momid.vis
 
+import javafx.scene.text.Font
+
 fun Screen.line(from: p, to: p) {
     val from = cor(from)
     val to = cor(to)
@@ -29,6 +31,28 @@ fun Screen.fillCircle(center: p, radius: Double, paint: Paint) {
 
 fun Screen.point(coordinates: Point, size: Double = 3.0, paint: Paint = this.paint) {
     fillCircle(coordinates, size, paint)
+}
+
+fun Screen.defaultText(text: String, coordinates: Point) {
+    val coordinates = cor(coordinates)
+    canvas.fillText(text, coordinates.x, coordinates.y)
+}
+
+fun Screen.text(text: String, coordinates: Point) {
+    val currentPaint = canvas.fill
+    canvas.fill = paint.font.color.toColor()
+    val coordinates = cor(coordinates)
+    canvas.fillText(text, coordinates.x, coordinates.y)
+    canvas.fill = currentPaint
+}
+
+fun Screen.text(text: String, coordinates: Point, paint: Paint) {
+    val currentPaint = canvas.fill
+    canvas.fill = paint.color.toColor()
+    val coordinates = cor(coordinates)
+    canvas.font = Font(10.0)
+    canvas.fillText(text, coordinates.x, coordinates.y)
+    canvas.fill = currentPaint
 }
 
 class Path(val screen: Screen, val startingPoint: Point? = null) {

@@ -2,10 +2,14 @@ package com.momid.vis
 
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
+import javafx.geometry.VPos
 import javafx.scene.Scene
 import javafx.scene.canvas.Canvas
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
+import javafx.scene.shape.StrokeLineCap
+import javafx.scene.shape.StrokeLineJoin
+import javafx.scene.text.Font
 import javafx.stage.Stage
 import kotlin.math.sin
 import kotlin.random.Random
@@ -26,7 +30,13 @@ class Graphics : Application() {
         context.lineWidth = root.paint.strokeWidth
         context.stroke = root.paint.color.toColor()
         context.fill = root.paint.color.toColor()
-        start()
+        context.lineCap = StrokeLineCap.BUTT
+        context.lineJoin = StrokeLineJoin.BEVEL
+//        context.textBaseline = VPos.CENTER
+//        context.miterLimit = 1.0
+        context.font = root.paint.font.toFont()
+        context.lineWidth = 3.0
+        root.start()
         context.lineWidth = 3.0
 //        context.strokeLine(0.0, 0.0, pane.width, pane.height)
         pane.children.add(canvas)
@@ -35,22 +45,18 @@ class Graphics : Application() {
 
 fun main() {
     showGraphics {
-        with(root) {
-            val center = p(root.width / 2, height / 2)
-//            line(p(0.0, 0.0), p(300.0, 300.0))
-            circle(center, 370.0)
-            plot()
-            val path = Path(this, p(0.0, 0.0))
-            startAnimation(3000) {
-//                circle(p(Random.nextDouble(0.0, 300.0), Random.nextDouble(0.0, 300.0)), 37.0)
-                val x = it.toDouble() / 3000 * 7
-                path.include(p(x * 300, sin(x * 7) * 300))
-                val x0 = x - 0.1
-                if (Random.nextInt(7) == 0) {
-                    point(p(x0 * 300, sin(x0 * 7) * 300), 3.8, color(0xff - 30, 37, 37, 0xff))
-                }
-                Thread.sleep(1)
+        val center = p(width / 2, height / 2)
+        circle(center, 370.0)
+        plot(area, 37.0, 70.0, 0.7)
+        val path = Path(this, p(0.0, 0.0))
+        startAnimation(3000) {
+            val x = it.toDouble() / 3000 * 7
+            path.include(p(x * 300, sin(x * 7) * 300))
+            val x0 = x - 0.1
+            if (Random.nextInt(7) == 0) {
+                point(p(x0 * 300, sin(x0 * 7) * 300), 3.8, color(0xff - 30, 37, 37, 0xff))
             }
+            Thread.sleep(1)
         }
     }
 }
