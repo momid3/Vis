@@ -1,7 +1,8 @@
+# Vis
 A simple and lightweight graphics library for Kotlin/Java.
 It's desinged to be easy-to-use for quick visualizing tasks.
 
-### Usage
+## Usage
 Here's how `Vis` can be used:
 ```Kotlin
 showGraphics {
@@ -17,14 +18,14 @@ showGraphics {
     }
 ```
 
-### Basics
+## Basics
 
-#### Screen
+### Screen
 The `Screen` Class represents an area in the screen that things can be directly drawn on.   
 A `root Screen` is automatically created after calling `showGraphics` which initialized graphics and opens a window.   
 New Screens can be added within the root Screen or other nested Screens at specified coordinates.   
 
-#### showGraphics
+### showGraphics
 Starts up the the library and opens a window, accepts a lambda which is called when everything is ready:
 ```Kotlin
 showGraphics {
@@ -34,10 +35,10 @@ showGraphics {
 ```
 It has access the root Screen as receiver (`this`) inside the lambda.
 
-#### Paint
+### Paint
 Used to style the drawings on a screen. each sceen has its own Paint.
 ```Kotlin
-  showGraphics {
+showGraphics {
     paint.strokeWidth = 0.3
     paint.color = Color(70, 70, 70, 0xff)
     paint.font = Font(paint.font.color, 10)
@@ -45,10 +46,10 @@ Used to style the drawings on a screen. each sceen has its own Paint.
 ```
 A Paint can also be used when drawing an individual shape only for that shape by passing a Paint to the drawing function:
 ```Kotlin
-  val paint = ...
-  line(p(300.0, 300.0), p(700.0, 700.0), paint)
+val paint = ...
+line(p(300.0, 300.0), p(700.0, 700.0), paint)
 ```
 
-#### Coordinates
+### Coordinates
 Coordinates in `Vis` adhere to the standard Cartesian system. This means that (0, 0) represents the bottom-left of the screen, unlike the top-left convention used in many other common frameworks.   
 Class `Point(x, y)` is used to represent a single point across the library.   
