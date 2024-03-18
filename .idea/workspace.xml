@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15035462-dd03-4edc-9891-9a1bd29fd46d" name="Changes" comment="improvements and">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Plot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="15035462-dd03-4edc-9891-9a1bd29fd46d" name="Changes" comment="improving plot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Animate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Animate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Graphics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Graphics.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/HelloApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/HelloApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Paint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Paint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Point.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Point.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Root.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Root.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/HelloApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Plot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Plot.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Screen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Shape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/momid/vis/Shape.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -48,23 +44,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Vis.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HelloApplicationKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Vis.executor": "Run",
+    "Kotlin.ApplicationKt.executor": "Run",
+    "Kotlin.HelloApplicationKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\moham\IdeaProjects\Vis\src\main\kotlin\com\momid\vis" />
@@ -81,10 +81,24 @@
       <workItem from="1710133160648" duration="20260000" />
       <workItem from="1710336242583" duration="7859000" />
       <workItem from="1710402020627" duration="690000" />
+      <workItem from="1710420954187" duration="28146000" />
     </task>
+    <task id="LOCAL-00001" summary="improving plot">
+      <option name="closed" value="true" />
+      <created>1710603146565</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710603146565</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="improving plot" />
+    <option name="LAST_COMMIT_MESSAGE" value="improving plot" />
   </component>
 </project>
